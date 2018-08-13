@@ -7,9 +7,10 @@
 
 
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="js/odometer/themes/odometer-theme-default.css">
 
 </head>
 
@@ -28,11 +29,11 @@
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer"></h3>
+            <p>Umsatz Jahr</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-dollar-sign"></i>
           </div>
         </div>
 
@@ -40,33 +41,33 @@
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer" class="odometer"></h3>
+            <p>Umsatz Monat</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fa fa-dollar-sign"></i>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer"></h3>
+            <p>Ausgaben Jahr</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-file-invoice-dollar"></i>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer"></h3>
+            <p>Ausgaben Monat</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-file-invoice-dollar"></i>
           </div>
         </div>
       </div>
@@ -75,11 +76,11 @@
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer"></h3>
+            <p>Gewinn Jahr</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-hand-holding-usd"></i>
           </div>
         </div>
 
@@ -87,33 +88,33 @@
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
-            <p>Offene FA's</p>
+            <h3 class="odometer"></h3>
+            <p>Gewinn Monat</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-hand-holding-usd"></i>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer" >Caca</h3>
+            <h3 class="odometer"></h3>
             <p>Offene FA's</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-money"></i>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="small-box bg-trans">
           <div class="inner">
-            <h3 class="odometer">15677</h3>
+            <h3 class="odometer"></h3>
             <p>Offene FA's</p>
           </div>
           <div class="icon">
-            <i class="fa fa-clock-o"></i>
+            <i class="fas fa-heart"></i>
           </div>
         </div>
       </div>
@@ -125,9 +126,7 @@
             Feature
           </div>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <canvas id="myChart"  height="200"></canvas>
           </div>
         </div>
       </div>
@@ -137,9 +136,7 @@
             Feature
           </div>
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+              <canvas id="myChart2"  height="200"></canvas>
           </div>
         </div>
       </div>
@@ -179,14 +176,84 @@
   <!--Odometer-->
   <script src="js/odometer/odometer.min.js"></script>
   <!--ChartJs-->
-  <script src=""></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
   <!---->
   <script src=""></script>
   <!---->
   <script src=""></script>
+
   <script>
-       $('.odometer').html(450); 
-   </script>
+    $(document).ready(function () {
+      var t = document.getElementsByClassName("odometer");
+      for (let i = 0; i < t.length; i++) {
+        const element = t[i];
+        element.innerHTML = 2324 + Math.random() * 1000 + '€';
+      }
+    });
+  </script>
+
+  <script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  </script>
+
+  <script>
+    var ctx = document.getElementById("myChart2").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>
