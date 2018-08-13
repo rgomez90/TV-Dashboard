@@ -48,7 +48,7 @@ body {
 }
 
 body {
-  background: url('/img/sky-bg.jpg');
+  background: url('img/sky-bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
