@@ -1,0 +1,129 @@
+.navbar-nav {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+nav {
+  margin-bottom: 20px;
+}
+
+body,
+html {
+  height: 100%
+}
+
+body {
+  height: 100%;
+  background: url('https://c.pxhere.com/photos/22/3d/blue_background_light_backgrounds-831155.jpg!d');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.card {
+  color: white;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.125), 0px 3px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin-bottom: 20px; 
+  border-radius: 0.15rem;
+}
+
+.card-header {
+  font-size: 1.5em;
+  text-shadow: 2px 2px 4px #000000;
+  background-color: rgb(10, 10, 255, 0.1);
+}
+
+.small-box {
+  border-radius: 0.15rem;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.125), 0px 3px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.small-box>.inner {
+  padding: 10px;
+}
+
+body {
+  background: url('/img/sky-bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg-trans {
+  background-color: rgb(250, 250, 250, 0.05);
+}
+
+.small-box>.small-box-footer {
+  position: relative;
+  text-align: center;
+  padding: 3px 0;
+  color: #fff;
+  color: rgba(0, 0, 250, 0.8);
+  display: block;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.small-box>.small-box-footer:hover {
+  color: #fff;
+  background: rgba(1, 102, 179, 0.5);
+}
+
+.small-box h3 {
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.small-box p {
+  font-size: 15px;
+}
+
+.small-box p>small {
+  display: block;
+  color: #f9f9f9;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.small-box h3,
+.small-box p {
+  z-index: 5;
+}
+
+.small-box .icon {
+  transition: all 0.3s linear;
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  z-index: 0;
+  font-size: 90px;
+  color: rgba(10, 90, 170, .5);
+}
+
+.small-box:hover {
+  text-decoration: none;
+}
+
+.small-box:hover .icon {
+  font-size: 95px;
+}
+
+@media (max-width: 767.98px) {
+  .small-box {
+    text-align: center;
+  }
+  .small-box .icon {
+    display: none;
+  }
+  .small-box p {
+    font-size: 12px;
+  }
+}
